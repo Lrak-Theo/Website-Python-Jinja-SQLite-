@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} Hangout</title>
+    <strong><link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"></strong>
+</head>
+<body>
+
+    <div class="foreground">
+        <nav>
+            <a href="{{ url_for('index')}}">Board</a>
+            <a href="{{url_for('create')}}">Post</a>
+            <a href="{{url_for('signup')}}">Signup</a>
+
+            {% if logged_in_user_name %} 
+                <a> {{ logged_in_user_name }} </a>
+                <a href="{{url_for('logout')}}">Logout</a>
+            {% else %}
+                <a href="{{url_for('signin')}}">Login</a>
+            {% endif %}
+        
+        </nav>
+
+        <hr>
+
+        <div class="content">
+            {% for message in get_flashed_messages() %}
+                <div class="alert">{{ message }}</div>
+            {% endfor %}
+            {% block content %} {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

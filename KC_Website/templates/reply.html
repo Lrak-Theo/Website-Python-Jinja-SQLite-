@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class='post'> 
+        <h2> {{post['title']}}</h2>
+
+        <h3>{{post['content']}}</h3>
+
+        <p>This post was created at {{ post['created'] }} by {{ post['username'] }}</p>
+    </div>
+
+    <br>
+    
+    <div class='post'>
+        <form method="post">
+            <label for="reply_text"><u>Reply to {{post['username']}}</u></label>
+            <br>
+            <input type="text" name="reply_text"
+                   value="{{ request.form['reply_text']}}"></input>
+    
+            <button type="submit">Reply</button>
+        </form>
+    </div>
+{% endblock%}
+

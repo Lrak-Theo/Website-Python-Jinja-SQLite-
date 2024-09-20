@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class='post'> 
+        <h2> {{post['title']}}</h2>
+
+        <h3>{{post['content']}}</h3>
+
+        <p>This post was created at {{ post['created'] }} by {{ post['username'] }}</p>
+        <a href="{{ url_for('reply', id=post['id']) }}">Reply</a>
+    </div>
+
+    {% for reply in reply %}
+    <div class='post'>
+        <p>{{reply['content']}}</p>
+        <p>{{reply['username']}}</p>
+    </div>
+    {% endfor %}
+{% endblock%}
+

@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS posts;
+
+CREATE TABLE posts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    title TEXT,
+    content TEXT NOT NULL,
+    userid INTEGER NOT NULL,
+    parent_id INTEGER,
+    FOREIGN KEY (parent_id) REFERENCES posts(id) ON DELETE CASCADE
+);
+
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL
+);
+

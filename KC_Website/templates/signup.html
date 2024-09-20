@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="post">
+    <div class="sign">
+    <h4><u>Sign up to the website</u></h4>
+    <form method = "post">
+        <label for="username"><u>Username</u></label>
+        <br>
+        <input class="inputSign" type="text" name="username"
+               value="{{ request.form['username']}}"></input>
+
+        <br>
+        <label for="password"><u>Password</u></label>
+        <br>
+        <input class="inputSign" type="text" name="password"
+               value="{{ request.form['password']}}"></input>
+
+        <br>
+        <button class="buttonSign" type="submit">Create Account</button>
+    
+    </form>
+    </div>
+    </div>
+
+{% endblock %}
